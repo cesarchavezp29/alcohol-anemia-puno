@@ -209,18 +209,24 @@ def main():
     if vd2.exists():
         v = pd.read_csv(vd2)
         order = ["0 no bebe", "1 bebe, nunca se embriaga", "2 se embriaga a veces", "3 se embriaga con frecuencia"]
-        fig, ax = plt.subplots(figsize=(6.2, 3.0))
+        fig, ax = plt.subplots(figsize=(6.6, 3.8))
         w = 0.38
+        shares = {}
         for k, (area, col) in enumerate([("Resto del Peru", NAVY), ("Puno", CRAN)]):
             s = v[v.area == area].set_index("categoria").reindex(order)
+            shares[area] = s.share.values
             xs = np.arange(4) + (k - 0.5) * w
             ax.bar(xs, s.physsex, width=w, color=col, label=area.replace("Peru", "Perú"),
                    yerr=1.96 * s.physsex_se, error_kw=dict(ecolor="black", lw=0.8, capsize=2))
             for xx, val, se in zip(xs, s.physsex, s.physsex_se):
-                ax.text(xx, val + 1.96 * se + 0.6, f"{val:.0f}", ha="center", fontsize=8)
-        ax.set_xticks(range(4), ["La pareja\nno bebe", "Bebe, nunca\nse embriaga", "Se embriaga\na veces", "Se embriaga\ncon frecuencia"])
-        ax.set_ylabel("Violencia física o sexual\nen los últimos 12 meses (%)")
-        ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.22), ncol=2)
+                ax.text(xx, val + 1.96 * se + 0.6, f"{val:.1f}".replace(".", ","), ha="center", fontsize=8)
+        cats = ["La pareja\nno bebe", "Bebe, nunca\nse embriaga", "Se embriaga\na veces", "Se embriaga\ncon frecuencia"]
+        labs = [f"{c}\n\nmujeres en esta\ncategoría\nresto {r:.1f}%, Puno {p:.1f}%".replace(".", ",")
+                for c, r, p in zip(cats, shares["Resto del Peru"], shares["Puno"])]
+        ax.set_xticks(range(4), labs, fontsize=8.5)
+        ax.set_ylabel("Mujeres que sufrieron violencia física\no sexual de su pareja en el último año (%)", fontsize=9)
+        ax.set_ylim(0, 39)
+        ax.legend(loc="upper left", ncol=1, fontsize=9)
         fig.savefig(F / "violencia_por_consumo_pareja.pdf", bbox_inches="tight")
         plt.close(fig)
     print(tab.round(1).sort_values("anemia_2001", ascending=False).to_string())
