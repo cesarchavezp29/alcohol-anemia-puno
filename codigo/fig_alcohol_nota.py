@@ -145,18 +145,32 @@ def main():
     # coefficients, anemia 2024, rest vs Puno
     rg = pd.read_csv(A / "v2_regressions_puno.csv")
     rg = rg[(rg.outcome == "anemia_2024") & (rg.years == "2014-2024")]
-    names = {"drank_30d": "Bebió en 30 días", "occasions": "Una ocasión más en 30 días",
-             "heavy_L": "Un litro más en la ocasión máxima", "beer_heavy": "Cerveza en la ocasión máxima",
-             "freq_problem": "Bebedor frecuente con daños"}
-    fig, ax = plt.subplots(figsize=(6.2, 3.2))
+    names = {"drank_30d": "El adulto bebió alcohol\nen el último mes (sí o no)",
+             "occasions": "Cada vez más que bebió\nen el último mes",
+             "heavy_L": "Cada litro más que tomó en\nsu día de mayor consumo",
+             "beer_heavy": "Tomó cerveza en su día\nde mayor consumo (sí o no)",
+             "freq_problem": "Bebe 12 o más días al año\ny reporta daños por el alcohol"}
+    fig, ax = plt.subplots(figsize=(6.6, 4.4))
     y = np.arange(len(rg))
-    ax.axvline(0, color=GREY, lw=0.8)
-    ax.errorbar(100 * rg.rest, y + 0.15, xerr=196 * rg.rest_se, fmt="o", color=NAVY, capsize=2, label="Resto del Perú")
-    ax.errorbar(100 * rg.puno, y - 0.15, xerr=196 * rg.puno_se, fmt="s", color=CRAN, capsize=2, label="Puno")
-    ax.set_yticks(y, [names[x] for x in rg.regressor])
-    ax.invert_yaxis()
-    ax.set_xlabel("Asociación con la probabilidad de anemia (pp), criterio OMS 2024, IC 95%")
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2)
+    ax.axvline(0, color=GREY, lw=0.9)
+    for k, (col, mk, lab, b, se, dy) in enumerate([(NAVY, "o", "Resto del Perú", rg.rest, rg.rest_se, -0.17),
+                                                   (CRAN, "s", "Puno", rg.puno, rg.puno_se, 0.17)]):
+        b, se = 100 * b.values, 100 * se.values
+        sig = np.abs(b) > 1.96 * se
+        ax.errorbar(b, y + dy, xerr=1.96 * se, fmt="none", ecolor=col, elinewidth=1.4, capsize=2.5)
+        ax.scatter(b[sig], (y + dy)[sig], marker=mk, s=42, color=col, zorder=3)
+        ax.scatter(b[~sig], (y + dy)[~sig], marker=mk, s=42, facecolor="white", edgecolor=col, linewidth=1.4, zorder=3)
+        for yy, bb, ss in zip(y + dy, b, se):
+            ax.text(bb + 1.96 * ss + 0.4, yy, f"{bb:+.1f}".replace(".", ","), ha="left", va="center", fontsize=8.5, color=col)
+        ax.scatter([], [], marker=mk, s=42, color=col, label=lab)
+    ax.scatter([], [], marker="o", s=42, facecolor="white", edgecolor="black", label="Marcador vacío, diferencia no clara (el margen cruza el cero)")
+    ax.set_yticks(y, [names[x] for x in rg.regressor], fontsize=9)
+    ax.set_xlim(-12, 18)
+    ax.set_ylim(len(rg) - 0.5, -0.6)
+    ax.set_xlabel("Puntos porcentuales más de anemia en sus niños frente a niños parecidos\n(criterio OMS 2024, margen de error al 95%)")
+    ax.text(0, 1.0, "← menos anemia  ", transform=ax.get_xaxis_transform(), ha="right", va="bottom", fontsize=9, color=GREY)
+    ax.text(0, 1.0, "  más anemia →", transform=ax.get_xaxis_transform(), ha="left", va="bottom", fontsize=9, color=GREY)
+    ax.legend(loc="upper center", bbox_to_anchor=(0.4, -0.2), ncol=2, fontsize=9)
     fig.savefig(F / "coeficientes_anemia.pdf", bbox_inches="tight")
     plt.close(fig)
 
@@ -169,15 +183,24 @@ def main():
             lab.append(f"{r_.area.replace('Peru', 'Perú')}, el adulto entrevistado no bebe\n(coeficientes {'de Puno' if r_.coefficients.startswith('Puno') else 'del resto del Perú'})")
         else:
             lab.append(f"{r_.area.replace('Peru', 'Perú')}, el gasto en alcohol\npasa a gasto del hogar")
-    fig, ax = plt.subplots(figsize=(6.2, 3.2))
+    lab = []
+    for _, r_ in cf.iterrows():
+        who = "Niños de Puno" if r_.area == "Puno" else "Niños de todo el Perú"
+        coef = "lo estimado para Puno" if r_.coefficients.startswith("Puno") else "lo estimado para\nel resto del país"
+        lab.append(f"{who},\nusando {coef}")
+    fig, ax = plt.subplots(figsize=(6.4, 3.4))
     y = np.arange(len(cf))
-    ax.axvline(0, color=GREY, lw=0.8)
+    ax.axvline(0, color=GREY, lw=0.9)
     err = np.vstack([cf.change_pp - cf.ci_low, cf.ci_high - cf.change_pp]).astype(float)
-    err = np.nan_to_num(err)
-    ax.errorbar(cf.change_pp, y, xerr=err, fmt="o", color=NAVY, capsize=2)
-    ax.set_yticks(y, lab)
-    ax.invert_yaxis()
-    ax.set_xlabel("Cambio simulado en la anemia infantil (pp), criterio OMS 2024, IC 95%")
+    ax.errorbar(cf.change_pp, y, xerr=err, fmt="o", color=CRAN, ms=7, capsize=3, elinewidth=1.4)
+    for yy, (_, r_) in zip(y, cf.iterrows()):
+        txt = f"{r_.change_pp:.1f} puntos (de {r_.ci_low:.1f} a {r_.ci_high:+.1f})".replace(".", ",")
+        ax.text(r_.change_pp, yy - 0.22, txt, ha="center", va="bottom", fontsize=8.5, color=CRAN)
+    ax.set_yticks(y, lab, fontsize=9)
+    ax.set_ylim(len(cf) - 0.5, -0.8)
+    ax.set_xlim(-2.6, 0.6)
+    ax.text(0, 1.0, "← menos anemia  ", transform=ax.get_xaxis_transform(), ha="right", va="bottom", fontsize=9, color=GREY)
+    ax.set_xlabel("Cambio simulado en la anemia infantil (puntos porcentuales) si el adulto entrevistado\nde cada hogar dejara de beber, criterio OMS 2024, margen de error al 95%")
     fig.savefig(F / "contrafactual.pdf", bbox_inches="tight")
     plt.close(fig)
 
