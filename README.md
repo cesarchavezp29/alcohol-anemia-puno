@@ -9,6 +9,7 @@ La nota completa está en [`nota/nota_alcohol_anemia_puno.pdf`](nota/nota_alcoho
 - **Cerveza.** Según los diarios de gasto de la ENAPREF 2019-2020, en Puno se adquieren 21,2 litros de cerveza por persona al año, frente a 15,6 en el resto del Perú, y el departamento ocupa el cuarto lugar entre 25. En la ENDES, sin embargo, en Puno bebe menos gente y con menos frecuencia, aunque en mayor cantidad cuando bebe.
 - **Medición de la anemia.** Con el criterio de la OMS de 2001, la anemia de los niños de 6 a 35 meses en Puno fue de 72,8% en 2014-2024. Con el criterio de 2024 fue de 44,5%. La brecha con el resto del país pasa de 30,9 a 8,0 puntos, casi toda por el cambio en la corrección por altitud.
 - **Alcohol y anemia.** El consumo de alcohol medido explica prácticamente nada de la brecha (descomposición de Oaxaca-Blinder). Si los adultos entrevistados en Puno dejaran de beber, el modelo predice una reducción de 1,1 puntos (IC 95% entre -2,3 y +0,2).
+- **Qué predice la anemia.** Enlazando a cada niño con su madre y los módulos de salud de la ENDES, doce grupos de variables explican el 9,2% de la variación de la anemia. Los mejores predictores son la edad del niño, la hemoglobina de la madre y la riqueza del hogar; el alcohol es el último (valor de Shapley del R²). En la brecha de Puno los factores se compensan (descomposición de Gelbach): la riqueza suma 2,0 puntos, la altitud y la hemoglobina materna restan, y quedan 8,6 puntos sin explicar (IC 95% 5,8 a 11,5), 6,0 frente a otras zonas sobre 3.000 m.
 - **Violencia contra la mujer.** Cuando la pareja se embriaga con frecuencia, el 30% de las mujeres sufrió violencia física o sexual en el último año, frente al 7% cuando la pareja no bebe.
 
 Todos los resultados son asociaciones descriptivas condicionadas en características observables, no efectos causales.
@@ -50,6 +51,8 @@ python codigo/analysis_alcohol_v2.py            # anemia OMS 2001 y 2024, regres
 python codigo/analysis_beer_enapref.py          # litros de cerveza en la ENAPREF
 python codigo/analysis_alcohol_engel.py         # curvas de Engel
 python codigo/analysis_alcohol_consequences.py  # contrafactual, violencia, escolaridad, panel
+python codigo/analysis_anemia_predictors.py     # predictores de la anemia: Shapley del R², Gelbach/Oaxaca
+python codigo/analysis_anemia_predictors.py --robust   # comprobaciones y bootstrap final de 1.999 réplicas
 python codigo/fig_alcohol_nota.py               # figuras
 ```
 

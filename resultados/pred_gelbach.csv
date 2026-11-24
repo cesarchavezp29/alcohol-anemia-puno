@@ -1,0 +1,109 @@
+component,pp,lo,hi,comparison,outcome,base
+Altitud y zona,-2.3168010214879273,-4.048335776048455,-0.7258967850994595,Puno frente al resto del Perú,anemia_2024,año
+Edad y sexo del niño,0.10466156016242704,-0.1562713831138042,0.351277609536291,Puno frente al resto del Perú,anemia_2024,año
+Orden de nacimiento,-0.22357399366530764,-0.4168913956970712,-0.007657540134675843,Puno frente al resto del Perú,anemia_2024,año
+Peso y tamaño al nacer,-0.02593142633930233,-0.1241538793618946,0.07300803856082864,Puno frente al resto del Perú,anemia_2024,año
+"Madre: educación, edad y talla",0.4266255691169273,0.2185865770736157,0.6811617060218039,Puno frente al resto del Perú,anemia_2024,año
+Riqueza y tamaño del hogar,2.049830343502463,1.6461793085675862,2.497864968539336,Puno frente al resto del Perú,anemia_2024,año
+"Agua, desagüe y combustible",0.12231313675773112,-0.11399152768233792,0.3960085659033065,Puno frente al resto del Perú,anemia_2024,año
+Alcohol del adulto,-0.07079238743912047,-0.1807012691551802,0.035841714203177076,Puno frente al resto del Perú,anemia_2024,año
+Hemoglobina de la madre,-0.7658572066050612,-1.06530532589646,-0.47461027735442246,Puno frente al resto del Perú,anemia_2024,año
+"Diarrea, fiebre y tos",0.1340597374849349,-0.00896979939456817,0.23916025025705112,Puno frente al resto del Perú,anemia_2024,año
+Lactancia actual,0.027807804170009602,-0.10709345790936795,0.17651307862886498,Puno frente al resto del Perú,anemia_2024,año
+Talla para la edad del niño,0.5296868880069759,0.35951859299649913,0.6889253602789991,Puno frente al resto del Perú,anemia_2024,año
+_base,8.620149514994297,6.218181811257897,11.118560835188676,Puno frente al resto del Perú,anemia_2024,año
+_full,8.628120511329497,5.885966944546285,11.476949032982878,Puno frente al resto del Perú,anemia_2024,año
+Altitud y zona,-2.3172212683444666,-4.047433439041838,-0.7247723651388738,Puno frente al resto del Perú,anemia_2024,"año, edad y sexo"
+Orden de nacimiento,-0.22009101311926074,-0.41505405845538407,-0.005265418605311702,Puno frente al resto del Perú,anemia_2024,"año, edad y sexo"
+Peso y tamaño al nacer,-0.02595835158409205,-0.12275399478779694,0.07278993700022474,Puno frente al resto del Perú,anemia_2024,"año, edad y sexo"
+"Madre: educación, edad y talla",0.43453757640292456,0.2206003954814593,0.679947213179701,Puno frente al resto del Perú,anemia_2024,"año, edad y sexo"
+Riqueza y tamaño del hogar,2.04981780780998,1.6472070122368738,2.500472248173742,Puno frente al resto del Perú,anemia_2024,"año, edad y sexo"
+"Agua, desagüe y combustible",0.12294447175398587,-0.11379570705063644,0.39673582105270555,Puno frente al resto del Perú,anemia_2024,"año, edad y sexo"
+Alcohol del adulto,-0.0708948909178604,-0.18057907562702288,0.035217733639841785,Puno frente al resto del Perú,anemia_2024,"año, edad y sexo"
+Hemoglobina de la madre,-0.7644741827110687,-1.0630352248615067,-0.47497956441591793,Puno frente al resto del Perú,anemia_2024,"año, edad y sexo"
+"Diarrea, fiebre y tos",0.1368060015927179,-0.0002559943582222833,0.24429339863148905,Puno frente al resto del Perú,anemia_2024,"año, edad y sexo"
+Lactancia actual,0.0518260872950936,-0.03923819692620367,0.15552771853110137,Puno frente al resto del Perú,anemia_2024,"año, edad y sexo"
+Talla para la edad del niño,0.5318751263576716,0.36227525650889597,0.6937252917487154,Puno frente al resto del Perú,anemia_2024,"año, edad y sexo"
+_base,8.557287875865182,6.253316015081416,11.001736275768302,Puno frente al resto del Perú,anemia_2024,"año, edad y sexo"
+_full,8.628120511329545,5.8859669445462846,11.476949032982882,Puno frente al resto del Perú,anemia_2024,"año, edad y sexo"
+Altitud y zona,16.578414152569017,14.947550605681956,18.14739591570867,Puno frente al resto del Perú,anemia_2001,año
+Edad y sexo del niño,-0.03759396821355882,-0.5449621098286115,0.39684946382257114,Puno frente al resto del Perú,anemia_2001,año
+Orden de nacimiento,-0.2283583748668653,-0.4233680516226622,-0.020800525783963318,Puno frente al resto del Perú,anemia_2001,año
+Peso y tamaño al nacer,-0.037367809666618484,-0.12448460673551984,0.057208693588953294,Puno frente al resto del Perú,anemia_2001,año
+"Madre: educación, edad y talla",0.44251217616438726,0.24113396640809376,0.7014188326885448,Puno frente al resto del Perú,anemia_2001,año
+Riqueza y tamaño del hogar,2.080139510705018,1.7036810588773224,2.5207631182896253,Puno frente al resto del Perú,anemia_2001,año
+"Agua, desagüe y combustible",0.07604070452996317,-0.18540935785644808,0.29851308381021846,Puno frente al resto del Perú,anemia_2001,año
+Alcohol del adulto,-0.12764244660618712,-0.23705478932057036,-0.02685566540883072,Puno frente al resto del Perú,anemia_2001,año
+Hemoglobina de la madre,-0.7451767699445764,-1.0752414073339984,-0.4666982204891075,Puno frente al resto del Perú,anemia_2001,año
+"Diarrea, fiebre y tos",0.1417412770570086,0.026258075649156262,0.25778581001427775,Puno frente al resto del Perú,anemia_2001,año
+Lactancia actual,0.029623135176048417,-0.1128244417528102,0.18808334428750828,Puno frente al resto del Perú,anemia_2001,año
+Talla para la edad del niño,0.48513844369948184,0.3241731604068436,0.6527925156057821,Puno frente al resto del Perú,anemia_2001,año
+_base,31.65221107720331,29.634284363850867,33.679092217775796,Puno frente al resto del Perú,anemia_2001,año
+_full,12.994741046600232,10.618150570656512,15.286095047012482,Puno frente al resto del Perú,anemia_2001,año
+Altitud y zona,16.576926829256955,14.947060390118,18.147060118246706,Puno frente al resto del Perú,anemia_2001,"año, edad y sexo"
+Orden de nacimiento,-0.2248956657920591,-0.4194196094438061,-0.01653108572974861,Puno frente al resto del Perú,anemia_2001,"año, edad y sexo"
+Peso y tamaño al nacer,-0.0380628181200112,-0.12496174151221658,0.0559689955872924,Puno frente al resto del Perú,anemia_2001,"año, edad y sexo"
+"Madre: educación, edad y talla",0.4501092090322283,0.24659986979592408,0.7042203123515197,Puno frente al resto del Perú,anemia_2001,"año, edad y sexo"
+Riqueza y tamaño del hogar,2.080143649867303,1.7045751674323053,2.5218662120006354,Puno frente al resto del Perú,anemia_2001,"año, edad y sexo"
+"Agua, desagüe y combustible",0.0767052987277592,-0.1844618056461941,0.2992351043681637,Puno frente al resto del Perú,anemia_2001,"año, edad y sexo"
+Alcohol del adulto,-0.12771134220151337,-0.23693342577168935,-0.02853879690954285,Puno frente al resto del Perú,anemia_2001,"año, edad y sexo"
+Hemoglobina de la madre,-0.7437990682437418,-1.0729303598926367,-0.46768246546159176,Puno frente al resto del Perú,anemia_2001,"año, edad y sexo"
+"Diarrea, fiebre y tos",0.14425932115567158,0.030066392723470434,0.258746786573774,Puno frente al resto del Perú,anemia_2001,"año, edad y sexo"
+Lactancia actual,0.05518483260584195,-0.043109963618362605,0.1692607692728039,Puno frente al resto del Perú,anemia_2001,"año, edad y sexo"
+Talla para la edad del niño,0.4873045729475436,0.32555102376526296,0.6509034893682198,Puno frente al resto del Perú,anemia_2001,"año, edad y sexo"
+_base,31.73090586583603,29.912821490151043,33.83133359245389,Puno frente al resto del Perú,anemia_2001,"año, edad y sexo"
+_full,12.994741046600081,10.618150570656395,15.286095047012585,Puno frente al resto del Perú,anemia_2001,"año, edad y sexo"
+Altitud y zona,-0.8961295179990539,-2.35976125669314,0.824297489240043,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+Edad y sexo del niño,0.04730159214321578,-0.2476840776775653,0.30685829130729086,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+Orden de nacimiento,-0.5469253201623825,-0.8253807659951217,-0.3118420210153232,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+Peso y tamaño al nacer,0.018752309845844414,-0.12332200555138476,0.20094919176667742,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+"Madre: educación, edad y talla",0.885247027292637,0.33275075456685005,1.4207839901090098,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+Riqueza y tamaño del hogar,-0.524651598347771,-0.9782063239312716,-0.09548049404626421,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+"Agua, desagüe y combustible",1.0433651393521775,0.34160632661975393,1.9135716073618054,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+Alcohol del adulto,0.08355192439283973,-0.029633519566939756,0.21511912906228636,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+Hemoglobina de la madre,0.6318356003065063,0.26124804052822553,1.0076920044584547,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+"Diarrea, fiebre y tos",0.12152287605380661,-0.05103779712674243,0.33791926916220033,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+Lactancia actual,-0.10677721324853144,-0.22573952152959148,-0.015347449899512125,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+Talla para la edad del niño,-0.5786175805991332,-0.9298407505483247,-0.21067022691137094,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+_base,6.201060150856689,3.5111654765514033,8.759684001720261,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+_full,6.022584911826437,2.849902326954188,9.178815043301759,Puno frente a otras zonas sobre 3.000 m,anemia_2024,año
+Altitud y zona,-0.8948396765933064,-2.3582090702316854,0.8243630978185148,Puno frente a otras zonas sobre 3.000 m,anemia_2024,"año, edad y sexo"
+Orden de nacimiento,-0.540646753214516,-0.8194793608077101,-0.3067054778406205,Puno frente a otras zonas sobre 3.000 m,anemia_2024,"año, edad y sexo"
+Peso y tamaño al nacer,0.017691673169934013,-0.12089081480478533,0.1985604956600401,Puno frente a otras zonas sobre 3.000 m,anemia_2024,"año, edad y sexo"
+"Madre: educación, edad y talla",0.8791993593369863,0.3338506741442725,1.3976632349201707,Puno frente a otras zonas sobre 3.000 m,anemia_2024,"año, edad y sexo"
+Riqueza y tamaño del hogar,-0.5244022592534713,-0.9788618814620901,-0.09788034492221387,Puno frente a otras zonas sobre 3.000 m,anemia_2024,"año, edad y sexo"
+"Agua, desagüe y combustible",1.045391463527583,0.34548633690013886,1.9131326658935823,Puno frente a otras zonas sobre 3.000 m,anemia_2024,"año, edad y sexo"
+Alcohol del adulto,0.08268317831777386,-0.032357485577247685,0.21516820068160414,Puno frente a otras zonas sobre 3.000 m,anemia_2024,"año, edad y sexo"
+Hemoglobina de la madre,0.6383052213230843,0.26244510329072385,1.0160597059520553,Puno frente a otras zonas sobre 3.000 m,anemia_2024,"año, edad y sexo"
+"Diarrea, fiebre y tos",0.12237721941836038,-0.04969367116032612,0.3427134157483457,Puno frente a otras zonas sobre 3.000 m,anemia_2024,"año, edad y sexo"
+Lactancia actual,-0.10810259709582731,-0.23617366682253563,-0.016378956040012573,Puno frente a otras zonas sobre 3.000 m,anemia_2024,"año, edad y sexo"
+Talla para la edad del niño,-0.5787630014831013,-0.9375033241534757,-0.21686770868659305,Puno frente a otras zonas sobre 3.000 m,anemia_2024,"año, edad y sexo"
+_base,6.161478739279998,3.387428189348949,8.802347909812346,Puno frente a otras zonas sobre 3.000 m,anemia_2024,"año, edad y sexo"
+_full,6.022584911826452,2.849902326954245,9.178815043301773,Puno frente a otras zonas sobre 3.000 m,anemia_2024,"año, edad y sexo"
+Altitud y zona,4.94166940978619,3.547575176290839,6.512978185307489,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+Edad y sexo del niño,0.031007920965135247,-0.40657111335244395,0.45082855506382424,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+Orden de nacimiento,-0.42037134467503223,-0.7299028915560234,-0.18083981696905407,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+Peso y tamaño al nacer,0.15670160209022918,0.025995258046800772,0.31383864186391436,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+"Madre: educación, edad y talla",0.6887739916402101,0.1475999901384725,1.1533661367992254,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+Riqueza y tamaño del hogar,-0.4699044714633808,-0.9519533439812943,-0.05226060745633827,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+"Agua, desagüe y combustible",1.109904881641955,0.4584524691943841,1.7787889163654864,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+Alcohol del adulto,-0.029578834168028503,-0.1359783842360207,0.11339908531563363,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+Hemoglobina de la madre,0.6351654724748872,0.2814124600579796,1.014925846625781,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+"Diarrea, fiebre y tos",0.11020365370173792,-0.05657527715353952,0.2726326003469812,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+Lactancia actual,-0.11006255230317842,-0.24996355372673726,-0.01111510210964469,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+Talla para la edad del niño,-0.698494566327484,-0.9869390191165305,-0.37632159771887846,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+_base,17.380264774022983,15.245288167538638,19.814714697427807,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+_full,11.435249610659518,8.827175927981333,14.05631295595471,Puno frente a otras zonas sobre 3.000 m,anemia_2001,año
+Altitud y zona,4.935472523195751,3.537127130065789,6.514437335225369,Puno frente a otras zonas sobre 3.000 m,anemia_2001,"año, edad y sexo"
+Orden de nacimiento,-0.4151547341881974,-0.7181961992633353,-0.1783742101964864,Puno frente a otras zonas sobre 3.000 m,anemia_2001,"año, edad y sexo"
+Peso y tamaño al nacer,0.15307125496511823,0.021731927060923688,0.3020827359632594,Puno frente a otras zonas sobre 3.000 m,anemia_2001,"año, edad y sexo"
+"Madre: educación, edad y talla",0.6836751550238583,0.13847950373389362,1.1379933198659042,Puno frente a otras zonas sobre 3.000 m,anemia_2001,"año, edad y sexo"
+Riqueza y tamaño del hogar,-0.4696987043227517,-0.9504897302612481,-0.05425366497722901,Puno frente a otras zonas sobre 3.000 m,anemia_2001,"año, edad y sexo"
+"Agua, desagüe y combustible",1.1114111792700443,0.46093776248463497,1.7781610044532885,Puno frente a otras zonas sobre 3.000 m,anemia_2001,"año, edad y sexo"
+Alcohol del adulto,-0.030908954029706052,-0.13554914575490445,0.10935958314280395,Puno frente a otras zonas sobre 3.000 m,anemia_2001,"año, edad y sexo"
+Hemoglobina de la madre,0.641682958520739,0.2833210281358999,1.0238999990572075,Puno frente a otras zonas sobre 3.000 m,anemia_2001,"año, edad y sexo"
+"Diarrea, fiebre y tos",0.1096607641520548,-0.05977779096985256,0.27245749602676245,Puno frente a otras zonas sobre 3.000 m,anemia_2001,"año, edad y sexo"
+Lactancia actual,-0.11159139778498263,-0.24325932949262685,-0.0182067652669813,Puno frente a otras zonas sobre 3.000 m,anemia_2001,"año, edad y sexo"
+Talla para la edad del niño,-0.6988180945046735,-0.9886726933514233,-0.3774661133523172,Puno frente a otras zonas sobre 3.000 m,anemia_2001,"año, edad y sexo"
+_base,17.344051560956935,15.28289798580517,19.620494294163674,Puno frente a otras zonas sobre 3.000 m,anemia_2001,"año, edad y sexo"
+_full,11.435249610659566,8.827175927981278,14.056312955954676,Puno frente a otras zonas sobre 3.000 m,anemia_2001,"año, edad y sexo"

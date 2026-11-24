@@ -1,30 +1,33 @@
-1/10  [citando el tuit original, sin imagen]
+1/11  [citando el tuit original, sin imagen]
 Esta pregunta sobre el consumo de alcohol y la anemia me parece muy interesante. Vibe coding con Claude y ChatGPT, analicé los microdatos de tres encuestas del INEI (ENDES, ENAHO y ENAPREF). Puno sí adquiere bastante cerveza, pero hay algo más llamativo. Su brecha de anemia cae de 31 a 8 puntos solo al cambiar la forma de medirla 🧵
 
-2/10  [imagen 02_mapa_cerveza_enapref.png]
+2/11  [imagen 02_mapa_cerveza_enapref.png]
 Empecemos por la cerveza. Según los diarios de gasto de la ENAPREF 2019-2020, en Puno se adquieren 21,2 litros de cerveza por persona al año, frente a 15,6 en el resto del Perú. Es un 36% más y lo pone cuarto entre los 25 departamentos. La primera parte de la hipótesis tiene fundamento.
 
-3/10  [imagen 03_puno_vs_resto_alcohol.png]
+3/11  [imagen 03_puno_vs_resto_alcohol.png]
 En la ENDES, donde un adulto de cada hogar cuenta cuánto bebe, el patrón es distinto. En Puno el 27% de los adultos bebió alcohol en el último mes, frente al 37% en el resto del Perú. Los que bebieron lo hicieron en promedio 1,4 veces en el mes, frente a 1,9. Pero cuando toman cerveza toman más, 2,3 litros en su día de mayor consumo, frente a 2,0 en el resto. Beben menos veces, pero más cantidad.
 
-4/10  [imagen 01_mapas_anemia_2001_2024.png]
+4/11  [imagen 01_mapas_anemia_2001_2024.png]
 Ahora la anemia. Se mide con la hemoglobina en la sangre, y un niño tiene anemia si está por debajo de un umbral, 11 g/dL. Pero en la altura, por la falta de oxígeno, la hemoglobina es naturalmente más alta. Por eso, antes de comparar, se le resta una corrección por altitud. En 2024 la OMS cambió esa corrección, y el Perú adoptó la nueva regla.
 
-5/10  [imagen 01_mapas_anemia_2001_2024.png, o sin imagen si ya va en el tuit anterior]
+5/11  [imagen 01_mapas_anemia_2001_2024.png, o sin imagen si ya va en el tuit anterior]
 En Puno, a unos 3.800 metros, la regla de 2001 le restaba a cada niño alrededor de 3,1 g/dL y la de 2024 le resta 2,6. Además, para menores de 2 años el umbral bajó a 10,5. Con la regla antigua, el 72,8% de los niños de 6 a 35 meses de Puno tenía anemia (2014-2024). Con la nueva, esos mismos niños tienen 44,5% y Puno pasa del primer al sexto lugar.
 
-6/10  [imagen 04_brecha_por_criterio.png]
+6/11  [imagen 04_brecha_por_criterio.png]
 El gráfico separa los dos cambios. Si solo se baja el umbral por edad, la anemia cae en todo el país y la diferencia entre Puno y el resto casi no se mueve (de 30,9 a 32,9 puntos). Si solo se cambia la corrección por altitud, la anemia sube en el resto del Perú, baja en Puno y la diferencia cae a 6,8. Con la regla de 2024 queda en 8. Casi todo viene de la altitud.
 
-7/10  [imagen 05_coeficientes_anemia.png]
+7/11  [imagen 05_coeficientes_anemia.png]
 ¿Y el alcohol? Cada fila del gráfico es una medida de cuánto bebe el adulto entrevistado del hogar. El número dice cuántos puntos más de anemia tienen sus niños frente a niños parecidos en edad, riqueza, altitud y educación de la madre. Azul es el resto del Perú y rojo, Puno. Si el marcador está vacío, la diferencia no es clara. En el resto solo hay dos diferencias claras, cada litro más en su día de mayor consumo (+0,4 puntos) y ser bebedor frecuente con daños (+3,3). En Puno ninguna es clara.
 
-8/10  [imagen 06_contrafactual.png]
+8/11  [imagen 06_contrafactual.png]
 Con esas cifras simulé qué pasaría si el adulto entrevistado de cada hogar dejara de beber, sin que cambie nada más. Con lo estimado para Puno, la anemia de sus niños bajaría 1,1 puntos, de 44,5% a cerca de 43,4%, aunque el margen va de 2,3 puntos menos a 0,2 más. Con lo estimado para el resto del país bajaría 0,2 puntos, en Puno y en todo el Perú. Y es un máximo, porque supone que toda la asociación es efecto del alcohol.
 
-9/10  [imagen 07_violencia_por_consumo_pareja.png]
+9/11  [imagen 07_predictores_anemia.png]
+¿Qué predice entonces la anemia? Enlacé a cada niño con su madre y agrupé 12 tipos de factores. Lo que más pesa (panel A) es la edad, con 10,6 puntos más a los 6-11 meses que a los 30-35, la hemoglobina de la madre, con 5,1 puntos más por cada g/dL menos, y la pobreza. El alcohol queda último. Y la brecha de Puno (panel B) no se explica: es más pobre (+2,0), pero sus madres tienen menos anemia y la altitud resta, así que los 8,6 puntos quedan intactos.
+
+10/11  [imagen 08_violencia_por_consumo_pareja.png]
 Donde el alcohol sí pesa es en la violencia contra la mujer. El gráfico agrupa a las mujeres con pareja según cuánto se embriaga su pareja, y muestra qué % sufrió violencia física o sexual de esa pareja en el último año. Si la pareja no bebe, 7,1% en el resto del Perú y 7,4% en Puno. Si se embriaga a veces, 11,8% y 14,4%. Si lo hace con frecuencia, 30,0% y 30,4%, cuatro veces más. Y en Puno el 82,7% dice que su pareja se embriaga a veces o con frecuencia, frente al 60,4% en el resto.
 
-10/10  [sin imagen]
-En resumen, la premisa tiene algo de cierto. Puno compra bastante cerveza y, cuando se bebe, se bebe mucho. Pero eso no explica la anemia de sus niños. La mayor parte de su brecha con el resto del país depende de cómo se corrige la hemoglobina por la altura, y otra parte de la pobreza. Donde el alcohol sí acompaña un problema grave es en la violencia dentro del hogar. Todo esto son asociaciones, no efectos causales. Nota, código y resultados 👇
+11/11  [sin imagen]
+En resumen, la premisa tiene algo de cierto. Puno compra bastante cerveza y, cuando se bebe, se bebe mucho. Pero eso no explica la anemia de sus niños. La mayor parte de su brecha depende de cómo se corrige la hemoglobina por la altura, y lo que queda no lo explica ninguna variable de las encuestas, tampoco el alcohol. Donde el alcohol sí acompaña un problema grave es en la violencia dentro del hogar. Son asociaciones, no efectos causales. Nota y código 👇
 https://github.com/cesarchavezp29/alcohol-anemia-puno

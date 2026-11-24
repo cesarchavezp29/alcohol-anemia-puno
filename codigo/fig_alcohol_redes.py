@@ -192,7 +192,17 @@ def main():
               "entrevistado pasaran a cero y todo lo demás quedara igual. Las cuatro medidas se estiman juntas en una "
               "sola regresión. Las líneas son el margen de error al 95%. ENDES 2014-2024. Es una simulación con un "
               "modelo estadístico y supone que toda la asociación es causal, por eso es un máximo.")
-    with_note("violencia_por_consumo_pareja", "07_violencia_por_consumo_pareja.png",
+    with_note("predictores_anemia", "07_predictores_anemia.png",
+              [r"A: $\phi_j = \Sigma_S\, \frac{|S|!\,(K-|S|-1)!}{K!}\,[R^2(S \cup j) - R^2(S)]$,   aporte de cada grupo $j$ al $R^2$ de"
+               r" $\mathrm{Anemia}_i = X_i'\beta + \lambda_{a\tilde{n}o} + \varepsilon_i$",
+               r"B: $\hat\delta_{base} - \hat\delta_{completo} = \Sigma_j\, \hat\Gamma_j\,\hat\beta_j$,   $\hat\Gamma_j$ diferencia Puno$-$resto en el grupo $j$,"
+               r"  $\hat\beta_j$ su efecto en la anemia"],
+              "Panel A, cuánto de la variación de la anemia entre niños explica cada grupo de variables (valor de Shapley). "
+              "Panel B, cuánto aporta cada grupo a la diferencia de anemia entre Puno y el resto del Perú "
+              "(descomposición de Gelbach, equivalente a Oaxaca-Blinder). Las líneas son el margen de error al 95%. "
+              "ENDES 2014-2024, 87.952 niños de 6 a 35 meses enlazados con su madre, regla de 2024. Son asociaciones, "
+              "no efectos causales.", width_in=7.5, wrap=105)
+    with_note("violencia_por_consumo_pareja", "08_violencia_por_consumo_pareja.png",
               [r"$\%\,\mathrm{violencia}_g = 100 \times (\Sigma_{i \in g}\, w_i\,V_i) \,/\, (\Sigma_{i \in g}\, w_i)$",
                r"$V_i = 1$ si la mujer sufrió violencia física o sexual de su pareja en los últimos 12 meses"],
               "Porcentaje de mujeres con pareja que sufrieron violencia física o sexual de su pareja, según cuántas veces "

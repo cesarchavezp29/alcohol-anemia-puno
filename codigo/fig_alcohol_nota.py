@@ -55,7 +55,73 @@ def choropleth(geo, values, path, label, vmin, vmax, cmap="YlOrRd"):
     plt.close(fig)
 
 
+SHORT = {"Altitud y zona": "Altitud y zona rural", "Edad y sexo del niño": "Edad y sexo del niño",
+         "Orden de nacimiento": "Orden de nacimiento", "Peso y tamaño al nacer": "Peso al nacer",
+         "Madre: educación, edad y talla": "Educación, edad y talla de la madre",
+         "Riqueza y tamaño del hogar": "Riqueza del hogar", "Agua, desagüe y combustible": "Agua, desagüe y leña",
+         "Alcohol del adulto": "Alcohol del adulto", "Hemoglobina de la madre": "Hemoglobina de la madre",
+         "Diarrea, fiebre y tos": "Diarrea, fiebre y tos", "Lactancia actual": "Lactancia",
+         "Talla para la edad del niño": "Talla del niño para su edad"}
+
+
+def predictors_figure():
+    sh = pd.read_csv(A / "pred_shapley_r2.csv")
+    gb = pd.read_csv(A / "pred_gelbach.csv")
+    sh = sh[sh.model == "M2"]
+    nat = sh[sh["sample"] == "Perú"].set_index("block").r2_pp
+    pun = sh[sh["sample"] == "Puno"].set_index("block").r2_pp
+    order = nat.sort_values(ascending=True).index
+    fig, (a1, a2) = plt.subplots(2, 1, figsize=(6.6, 8.6), gridspec_kw=dict(height_ratios=[1, 1.05], hspace=0.42))
+    y = np.arange(len(order))
+    h = 0.38
+    a1.barh(y + h / 2, nat[order], height=h, color=NAVY, label="Todo el Perú")
+    a1.barh(y - h / 2, pun[order], height=h, color=CRAN, label="Solo Puno")
+    for yy, v1, v2 in zip(y, nat[order], pun[order]):
+        a1.text(v1 + 0.03, yy + h / 2, f"{v1:.2f}".replace(".", ","), va="center", fontsize=7.5, color=NAVY)
+        a1.text(v2 + 0.03, yy - h / 2, f"{v2:.2f}".replace(".", ","), va="center", fontsize=7.5, color=CRAN)
+    a1.set_yticks(y, [SHORT[b] for b in order], fontsize=8.5)
+    a1.set_xlim(0, 2.75)
+    tot_n = sh[sh["sample"] == "Perú"].r2_full_pp.iloc[0]
+    tot_p = sh[sh["sample"] == "Puno"].r2_full_pp.iloc[0]
+    a1.set_xlabel(f"Puntos de R², cuánto de la variación de la anemia entre niños explica cada grupo\n"
+                  f"(todos juntos explican {tot_n:.1f}% en el Perú y {tot_p:.1f}% en Puno)".replace(".", ",", 2), fontsize=8.5)
+    a1.legend(loc="lower right", fontsize=8.5)
+    a1.set_title("A. ¿Qué predice que un niño tenga anemia?", loc="left", fontsize=10.5)
+
+    fin = A / "pred_gelbach_final.csv"
+    if fin.exists():
+        gf = pd.read_csv(fin)
+        t = gf[gf.comparison.str.contains("resto")].set_index("component")
+    else:
+        t = gb[(gb.outcome == "anemia_2024") & (gb.base == "año") & gb.comparison.str.contains("resto")].set_index("component")
+    blocks = t.drop(index=["_base", "_full"]).sort_values("pp")
+    labs = ["Brecha observada"] + [SHORT[b] for b in blocks.index] + ["Brecha que queda sin explicar"]
+    vals = [t.loc["_base", "pp"]] + list(blocks.pp) + [t.loc["_full", "pp"]]
+    lo = [t.loc["_base", "lo"]] + list(blocks.lo) + [t.loc["_full", "lo"]]
+    hi = [t.loc["_base", "hi"]] + list(blocks.hi) + [t.loc["_full", "hi"]]
+    cols = [GREY] + [NAVY for b in blocks.index] + [GREY]
+    y2 = np.arange(len(labs))[::-1]
+    a2.axvline(0, color="black", lw=0.6)
+    a2.barh(y2, vals, color=cols, height=0.62)
+    a2.errorbar(vals, y2, xerr=[np.array(vals) - np.array(lo), np.array(hi) - np.array(vals)], fmt="none",
+                ecolor="black", lw=0.7, capsize=2)
+    for yy, v, h_, l_ in zip(y2, vals, hi, lo):
+        x = (h_ + 0.25) if v >= 0 else (l_ - 0.25)
+        a2.text(x, yy, (f"{v:+.1f}" if abs(v) >= 0.05 else "0,0").replace(".", ","), va="center", ha="left" if v >= 0 else "right", fontsize=7.5)
+    a2.set_yticks(y2, labs, fontsize=8.5)
+    for lbl in a2.get_yticklabels():
+        if lbl.get_text().startswith("Brecha"):
+            lbl.set_fontweight("bold")
+    a2.set_xlim(-6, 13.5)
+    a2.set_xlabel("Puntos porcentuales de la diferencia de anemia entre Puno y el resto del Perú, regla OMS 2024\n"
+                  "(positivo: ese grupo de factores hace que Puno tenga más anemia)", fontsize=8.5)
+    a2.set_title("B. ¿Qué explica que Puno tenga más anemia que el resto del Perú?", loc="left", fontsize=10.5)
+    fig.savefig(F / "predictores_anemia.pdf", bbox_inches="tight")
+    plt.close(fig)
+
+
 def main():
+    predictors_figure()
     geo = departments()
     g = V2.build(pd.read_parquet(A / "_cache_v2_endes.parquet"))
     g = g[g.year >= 2014]
