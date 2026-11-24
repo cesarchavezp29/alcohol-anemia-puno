@@ -1,0 +1,7 @@
+raw/
+analysis/
+*.parquet
+__pycache__/
+*.aux
+*.log
+*.out

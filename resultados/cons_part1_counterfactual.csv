@@ -1,0 +1,11 @@
+part,outcome,area,coefficients,anemia_now,change_pp,ci_low,ci_high
+1a behavioral,anemia_2001,Puno,Puno-specific,72.91036576117872,-0.7409118209469354,-1.8583063998577163,0.37648275796384534
+1a behavioral,anemia_2001,Puno,national (rest of Peru),72.91036576117872,-0.1821049783203976,-0.41746144857898754,0.05325149193819239
+1a behavioral,anemia_2001,Peru,national (rest of Peru),42.62110164378757,-0.27262894274566174,-0.5869372185428724,0.0416793330515489
+1a behavioral,anemia_2024,Puno,Puno-specific,44.306196176944184,-1.0599827845347818,-2.3047476072302473,0.18478203816068417
+1a behavioral,anemia_2024,Puno,national (rest of Peru),44.306196176944184,-0.15749123300388215,-0.39109226926713186,0.07610980325936753
+1a behavioral,anemia_2024,Peru,national (rest of Peru),36.469645094735895,-0.207192872650616,-0.5181137042362626,0.10372795893503059
+1b budget (upper bound),anemia_2001,Peru,slope -0.144 per log-point; alcohol share 2.26%,,-0.3225297236485916,,
+1b budget (upper bound),anemia_2001,Puno,slope -0.144 per log-point; alcohol share 3.30%,,-0.468028124425633,,
+1b budget (upper bound),anemia_2024,Peru,slope -0.130 per log-point; alcohol share 2.26%,,-0.2905537196152986,,
+1b budget (upper bound),anemia_2024,Puno,slope -0.130 per log-point; alcohol share 3.30%,,-0.42162722523088386,,

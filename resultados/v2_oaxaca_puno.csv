@@ -1,0 +1,37 @@
+outcome,coefs,component,pp
+anemia_2001,pooled (+Puno dummy),"alcohol (30d, occasions, heaviest-occasion liters, frequent+problem)",-0.10101463952397974
+anemia_2001,pooled (+Puno dummy),wealth quintile,3.535947778256189
+anemia_2001,pooled (+Puno dummy),mother's education,0.02978259736221949
+anemia_2001,pooled (+Puno dummy),urban/rural,-0.36065431550669647
+anemia_2001,pooled (+Puno dummy),altitude,15.36420144842092
+anemia_2001,pooled (+Puno dummy),child age and sex,-0.18700981642578657
+anemia_2001,pooled (+Puno dummy),TOTAL explained,18.281253052582866
+anemia_2001,pooled (+Puno dummy),unexplained,13.025942419282613
+anemia_2001,pooled (+Puno dummy),GAP Puno - rest,31.30719547186548
+anemia_2001,rest-of-Peru coefficients,"alcohol (30d, occasions, heaviest-occasion liters, frequent+problem)",-0.09928666590819712
+anemia_2001,rest-of-Peru coefficients,wealth quintile,3.6021890373797048
+anemia_2001,rest-of-Peru coefficients,mother's education,0.03223921351334915
+anemia_2001,rest-of-Peru coefficients,urban/rural,-0.3148910385199961
+anemia_2001,rest-of-Peru coefficients,altitude,14.727764449771442
+anemia_2001,rest-of-Peru coefficients,child age and sex,-0.19049701326686566
+anemia_2001,rest-of-Peru coefficients,TOTAL explained,17.757517982969436
+anemia_2001,rest-of-Peru coefficients,unexplained,13.549677488896043
+anemia_2001,rest-of-Peru coefficients,GAP Puno - rest,31.30719547186548
+anemia_2024,pooled (+Puno dummy),"alcohol (30d, occasions, heaviest-occasion liters, frequent+problem)",-0.049891003152359406
+anemia_2024,pooled (+Puno dummy),wealth quintile,3.570800860200419
+anemia_2024,pooled (+Puno dummy),mother's education,-0.006641560568988909
+anemia_2024,pooled (+Puno dummy),urban/rural,-0.2712392014149785
+anemia_2024,pooled (+Puno dummy),altitude,-4.655017976644381
+anemia_2024,pooled (+Puno dummy),child age and sex,0.012876988715725915
+anemia_2024,pooled (+Puno dummy),TOTAL explained,-1.3991118928645634
+anemia_2024,pooled (+Puno dummy),unexplained,9.499025961595164
+anemia_2024,pooled (+Puno dummy),GAP Puno - rest,8.099914068730602
+anemia_2024,rest-of-Peru coefficients,"alcohol (30d, occasions, heaviest-occasion liters, frequent+problem)",-0.04979890615189882
+anemia_2024,rest-of-Peru coefficients,wealth quintile,3.592645460359034
+anemia_2024,rest-of-Peru coefficients,mother's education,-0.004987417940716262
+anemia_2024,rest-of-Peru coefficients,urban/rural,-0.2138793957540473
+anemia_2024,rest-of-Peru coefficients,altitude,-5.065958658029288
+anemia_2024,rest-of-Peru coefficients,child age and sex,0.015581254809282056
+anemia_2024,rest-of-Peru coefficients,TOTAL explained,-1.7263976627076343
+anemia_2024,rest-of-Peru coefficients,unexplained,9.826311731438237
+anemia_2024,rest-of-Peru coefficients,GAP Puno - rest,8.099914068730602
