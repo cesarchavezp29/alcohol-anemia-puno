@@ -19,7 +19,7 @@ Todos los resultados son asociaciones descriptivas condicionadas en característ
 |---|---|
 | `nota/` | Nota en PDF y su fuente en LaTeX |
 | `figuras/` | Figuras en PDF para la nota, y en `figuras/redes/` versiones PNG con nota de fuente y construcción para redes sociales |
-| `hilo_twitter.txt` | Hilo de nueve tuits que resume los resultados |
+| `hilo_twitter.txt` | Hilo de diez tuits que resume los resultados |
 | `resultados/` | Tablas de resultados agregados en CSV |
 | `codigo/` | Programas en Python |
 
