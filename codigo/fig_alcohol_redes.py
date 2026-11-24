@@ -83,7 +83,7 @@ def maps():
     t = pd.read_csv(A / "nota" / "tabla_departamentos.csv")
     inv = {v: k for k, v in DEP.items()}
     t["dept"] = t.iloc[:, 0].map(inv)
-    fig, axes = plt.subplots(1, 2, figsize=(9, 6.6))
+    fig, axes = plt.subplots(1, 2, figsize=(9, 6.6), dpi=220)
     norm = Normalize(20, 75)
     for ax, col, lab in [(axes[0], "anemia_2001", "Regla de la OMS de 2001"), (axes[1], "anemia_2024", "Regla de la OMS de 2024")]:
         m = geo.merge(t[["dept", col]], on="dept", how="left")
@@ -114,6 +114,46 @@ def maps():
     plt.close(out)
 
 
+def beer_map():
+    geo = departments()
+    t = pd.read_csv(A / "nota" / "tabla_departamentos.csv")
+    inv = {v: k for k, v in DEP.items()}
+    t["dept"] = t.iloc[:, 0].map(inv)
+    fig, ax = plt.subplots(figsize=(5.6, 7.2), dpi=220)
+    norm = Normalize(0, 30)
+    m = geo.merge(t[["dept", "litros"]], on="dept", how="left")
+    m.plot(column="litros", cmap="Blues", norm=norm, ax=ax, edgecolor="white", linewidth=0.4)
+    m[m.dept == 21].boundary.plot(ax=ax, color="black", linewidth=1.2)
+    val = t.loc[t.dept == 21, "litros"].iloc[0]
+    c = m[m.dept == 21].geometry.iloc[0].centroid
+    ax.annotate(f"Puno\n{val:.1f} litros".replace(".", ","), xy=(c.x, c.y), xytext=(c.x + 2.2, c.y - 0.6),
+                fontsize=11, ha="left", va="center", arrowprops=dict(arrowstyle="-", color="black", lw=0.8))
+    rank = int(t["litros"].rank(ascending=False, method="min")[t.dept == 21].iloc[0])
+    rest = pd.read_csv(A / "enapref2020_beer_liters.csv").set_index("area").loc["Peru sin Puno", "C_plus_price_nat"]
+    ax.set_title(f"Cerveza adquirida por persona al año\nPuno ocupa el puesto {rank} de 25 "
+                 f"(resto del Perú, {rest:.1f} litros)".replace(".", ","), fontsize=12)
+    ax.set_axis_off()
+    sm = plt.cm.ScalarMappable(norm=norm, cmap="Blues")
+    cax = fig.add_axes([0.2, 0.08, 0.6, 0.022])
+    cb = fig.colorbar(sm, cax=cax, orientation="horizontal")
+    cb.set_label("Litros de cerveza por persona al año", fontsize=11)
+    cb.outline.set_visible(False)
+    fig.subplots_adjust(bottom=0.14, top=0.9)
+    fig.canvas.draw()
+    img = np.asarray(fig.canvas.buffer_rgba())[:, :, :3]
+    plt.close(fig)
+    out = compose(img,
+                  [r"$L_{pc} = 52 \times (\Sigma_h\, w_h\,L_h) \,/\, (\Sigma_h\, w_h\,N_h)$",
+                   r"$L_h$ litros de cerveza del hogar en 7 días, $N_h$ miembros, $w_h$ factor de expansión"],
+                  "Litros de cerveza adquiridos por persona al año, dentro y fuera del hogar, ENAPREF 2019-2020. Los "
+                  "diarios de 7 días registran las compras del hogar y de cada uno de sus miembros, incluida la cerveza "
+                  "en bares y fiestas. Los litros salen del volumen declarado o del tamaño del envase. La ENAPREF "
+                  "representa a las ciudades y no a todo el departamento. El borde negro marca Puno.",
+                  width_in=7.0, wrap=98)
+    out.savefig(OUT / "02_mapa_cerveza_enapref.png", dpi=220)
+    plt.close(out)
+
+
 def with_note(pdf_name, out_name, eq, note, width_in=7.5, wrap=105, max_h=None):
     fig = compose(raster(pdf_name), eq, note, width_in, wrap, max_h)
     fig.savefig(OUT / out_name, dpi=220)
@@ -122,15 +162,9 @@ def with_note(pdf_name, out_name, eq, note, width_in=7.5, wrap=105, max_h=None):
 
 def main():
     maps()
-    with_note("mapa_cerveza_enapref", "02_mapa_cerveza_enapref.png",
-              [r"$L_{pc} = 52 \times \sum_h w_h\,L_h \,/\, \sum_h w_h\,N_h$",
-               r"$L_h$ litros de cerveza del hogar en 7 días, $N_h$ miembros, $w_h$ factor de expansión"],
-              "Litros de cerveza adquiridos por persona al año, dentro y fuera del hogar, ENAPREF 2019-2020. Los diarios "
-              "de 7 días registran las compras del hogar y de cada uno de sus miembros, incluida la cerveza en bares y "
-              "fiestas. Los litros salen del volumen declarado o del tamaño del envase. La ENAPREF representa a las "
-              "ciudades y no a todo el departamento. El borde negro marca Puno.", width_in=7.5, wrap=105, max_h=6.2)
+    beer_map()
     with_note("puno_vs_resto_alcohol", "03_puno_vs_resto_alcohol.png",
-              [r"Cada barra es un promedio ponderado   $\bar y_g = \sum_{i \in g} w_i\,y_i \,/\, \sum_{i \in g} w_i$,   $g$ = Puno o resto del Perú",
+              [r"Cada barra es un promedio ponderado   $\bar y_g = (\Sigma_{i \in g}\, w_i\,y_i) \,/\, (\Sigma_{i \in g}\, w_i)$,   $g$ = Puno o resto del Perú",
                r"Litros en el día de mayor consumo   $0{,}25 \times \mathrm{vasos\ o\ latas} + 0{,}62 \times \mathrm{botellas}$"],
               "Fila de arriba, cuánta gente bebe y con qué frecuencia. Fila de abajo, cuánto se bebe o se compra. ENDES "
               "2014-2024 para el adulto de 15 años o más entrevistado en hogares con niños de 6 a 35 meses, y ENDES "
@@ -152,14 +186,14 @@ def main():
               "edad y sexo del adulto, más efectos fijos de departamento y año. Anemia con la regla de 2024. Las "
               "líneas son el margen de error al 95%. ENDES 2014-2024. Son asociaciones, no efectos causales.")
     with_note("contrafactual", "06_contrafactual.png",
-              [r"$\Delta\,\mathrm{Anemia} = -\sum_k b_k\,\overline{Alc}_k$,   $b_k = \hat\beta_k + \hat\theta_k$ con coeficientes de Puno, $b_k = \hat\beta_k$ con los del resto",
+              [r"$\Delta\,\mathrm{Anemia} = -\Sigma_k\, b_k\,\overline{Alc}_k$,   $b_k = \hat\beta_k + \hat\theta_k$ con coeficientes de Puno, $b_k = \hat\beta_k$ con los del resto",
                r"$k$ = bebió en el mes, veces que bebió, litros en su día de mayor consumo, bebe con frecuencia y reporta daños"],
               "Cambio predicho en la anemia infantil, con la regla de 2024, si las cuatro medidas de consumo del adulto "
               "entrevistado pasaran a cero y todo lo demás quedara igual. Las cuatro medidas se estiman juntas en una "
               "sola regresión. Las líneas son el margen de error al 95%. ENDES 2014-2024. Es una simulación con un "
               "modelo estadístico y supone que toda la asociación es causal, por eso es un máximo.")
     with_note("violencia_por_consumo_pareja", "07_violencia_por_consumo_pareja.png",
-              [r"$\%\,\mathrm{violencia}_g = 100 \times \sum_{i \in g} w_i\,V_i \,/\, \sum_{i \in g} w_i$",
+              [r"$\%\,\mathrm{violencia}_g = 100 \times (\Sigma_{i \in g}\, w_i\,V_i) \,/\, (\Sigma_{i \in g}\, w_i)$",
                r"$V_i = 1$ si la mujer sufrió violencia física o sexual de su pareja en los últimos 12 meses"],
               "Porcentaje de mujeres con pareja que sufrieron violencia física o sexual de su pareja, según cuántas veces "
               "se embriaga la pareja, en Puno y en el resto del Perú. Las líneas son el margen de error al 95%. ENDES "
