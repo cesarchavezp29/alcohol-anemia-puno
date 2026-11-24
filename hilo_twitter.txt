@@ -1,5 +1,5 @@
-1/11  [citando el tuit original, sin imagen]
-Esta pregunta sobre el consumo de alcohol y la anemia me parece muy interesante. Vibe coding con Claude y ChatGPT, analicé los microdatos de tres encuestas del INEI (ENDES, ENAHO y ENAPREF). Puno sí adquiere bastante cerveza, pero hay algo más llamativo. Su brecha de anemia cae de 31 a 8 puntos solo al cambiar la forma de medirla 🧵
+1/11  [citando el tuit original, con la imagen 00_apertura_cerveza_anemia.png]
+Esta pregunta sobre el consumo de alcohol y la anemia me parece muy interesante. Vibe coding con Claude y ChatGPT, analicé los microdatos de tres encuestas del INEI (ENDES, ENAHO y ENAPREF). El gráfico resume el rompecabezas. Puno está entre los departamentos que más cerveza compran, pero entre departamentos no se ve relación entre cerveza y anemia, y la anemia de Puno cae de 72,8% a 44,5% solo con cambiar la regla para medirla 🧵
 
 2/11  [imagen 02_mapa_cerveza_enapref.png]
 Empecemos por la cerveza. Según los diarios de gasto de la ENAPREF 2019-2020, en Puno se adquieren 21,2 litros de cerveza por persona al año, frente a 15,6 en el resto del Perú. Es un 36% más y lo pone cuarto entre los 25 departamentos. La primera parte de la hipótesis tiene fundamento.

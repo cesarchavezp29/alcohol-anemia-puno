@@ -154,6 +154,65 @@ def beer_map():
     plt.close(out)
 
 
+def opening():
+    """Tweet 1: beer liters vs child anemia by department (2024 rule); 2001 -> 2024 arrows for Puno and 4 cases."""
+    NAVY, CRAN, GREY, BLUE = "#1f3b57", "#a4133c", "#b5b5b5", "#5b7fa6"
+    t = pd.read_csv(A / "nota" / "tabla_departamentos.csv")
+    t["name"] = t.iloc[:, 0]
+    KEY = {"Huancavelica": (-0.4, 0, "right"), "Madre de Dios": (0.5, 0, "left"), "Ucayali": (-0.4, 0, "right"),
+           "Tumbes": (-0.4, 0, "right")}
+    fig, ax = plt.subplots(figsize=(7.2, 5.6), dpi=220)
+    for _, r in t.iterrows():
+        nm = r["name"]
+        if nm == "Puno" or nm in KEY:
+            continue
+        ax.scatter(r.litros, r.anemia_2024, s=26, color=GREY, zorder=2)
+    for nm, (dx, dy, ha) in KEY.items():
+        r = t[t["name"] == nm].iloc[0]
+        ax.annotate("", xy=(r.litros, r.anemia_2024), xytext=(r.litros, r.anemia_2001),
+                    arrowprops=dict(arrowstyle="-|>", color=BLUE, lw=1.0, mutation_scale=8, shrinkA=4, shrinkB=4))
+        ax.scatter(r.litros, r.anemia_2001, s=28, facecolor="white", edgecolor=BLUE, lw=1.1, zorder=3)
+        ax.scatter(r.litros, r.anemia_2024, s=28, color=BLUE, zorder=3)
+        ax.text(r.litros + dx, (r.anemia_2001 + r.anemia_2024) / 2 + dy, nm, fontsize=8.5, color=BLUE, ha=ha, va="center")
+    p = t[t["name"] == "Puno"].iloc[0]
+    ax.annotate("", xy=(p.litros, p.anemia_2024), xytext=(p.litros, p.anemia_2001),
+                arrowprops=dict(arrowstyle="-|>", color=CRAN, lw=2.0, mutation_scale=13, shrinkA=5, shrinkB=5))
+    ax.scatter(p.litros, p.anemia_2001, s=70, facecolor="white", edgecolor=CRAN, lw=1.6, zorder=4)
+    ax.scatter(p.litros, p.anemia_2024, s=70, color=CRAN, zorder=4)
+    box = (f"Puno\n{p.litros:.1f} litros de cerveza por persona, puesto 4\n"
+           f"Anemia {p.anemia_2001:.1f}% con la regla de 2001 (puesto 1)\n"
+           f"{p.anemia_2024:.1f}% con la de 2024, mismos niños (puesto 6)").replace(".", ",")
+    ax.text(p.litros - 0.8, 70.5, box, fontsize=9, color=CRAN, ha="right", va="top", linespacing=1.35,
+            bbox=dict(boxstyle="round,pad=0.45", fc="white", ec=CRAN, lw=0.8))
+    ax.set_xlim(4, 31)
+    ax.set_ylim(26, 76)
+    ax.set_xlabel("Litros de cerveza adquiridos por persona al año (ENAPREF 2019-2020)", fontsize=10)
+    ax.set_ylabel("Niños de 6 a 35 meses con anemia (%)", fontsize=10)
+    from matplotlib.lines import Line2D
+    h = [Line2D([], [], marker="o", ls="", color=GREY, label="Departamento, regla de 2024"),
+         Line2D([], [], marker="o", ls="", mfc="white", mec=BLUE, label="Regla de 2001"),
+         Line2D([], [], marker="o", ls="", color=BLUE, label="Regla de 2024, mismos niños")]
+    ax.legend(handles=h, loc="lower right", fontsize=8.5)
+    r01, r24 = t.litros.corr(t.anemia_2001), t.litros.corr(t.anemia_2024)
+    ax.set_title("¿La cerveza explica la anemia infantil de Puno?", loc="left", fontsize=13.5, pad=22)
+    ax.text(0, 1.015, "Cerveza adquirida por persona y anemia infantil por departamento", transform=ax.transAxes,
+            fontsize=9.5, color="#555555", va="bottom")
+    fig.canvas.draw()
+    img = np.asarray(fig.canvas.buffer_rgba())[:, :, :3]
+    plt.close(fig)
+    out = compose(img, [r"$\mathrm{Anemia}_d = (\Sigma_{i \in d}\, w_i\,1[\,Hb_i - c(h_i) < u(\mathrm{edad}_i)\,]) \,/\, (\Sigma_{i \in d}\, w_i)$,"
+                        r"   $L_d = 52 \times (\Sigma_h\, w_h L_h)\,/\,(\Sigma_h\, w_h N_h)$"],
+                  "No se ve una relación clara entre cerveza y anemia entre departamentos (correlación de "
+                  + f"{r01:.2f}".replace(".", ",") + " con la regla de 2001 y " + f"{r24:.2f}".replace(".", ",")
+                  + " con la de 2024). "
+                  + "Las flechas van de la anemia con la regla de la OMS de 2001 a la de 2024, con los mismos niños y "
+                  "la misma hemoglobina. Anemia de 6 a 35 meses, ENDES 2014-2024. Es una comparación entre "
+                  "departamentos y no dice nada sobre los hogares, que se analizan en el resto del hilo.",
+                  width_in=7.5, wrap=105)
+    out.savefig(OUT / "00_apertura_cerveza_anemia.png", dpi=220)
+    plt.close(out)
+
+
 def with_note(pdf_name, out_name, eq, note, width_in=7.5, wrap=105, max_h=None):
     fig = compose(raster(pdf_name), eq, note, width_in, wrap, max_h)
     fig.savefig(OUT / out_name, dpi=220)
@@ -161,6 +220,7 @@ def with_note(pdf_name, out_name, eq, note, width_in=7.5, wrap=105, max_h=None):
 
 
 def main():
+    opening()
     maps()
     beer_map()
     with_note("puno_vs_resto_alcohol", "03_puno_vs_resto_alcohol.png",
