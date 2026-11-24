@@ -14,7 +14,7 @@ Ahora la anemia. Se mide con la hemoglobina en la sangre, y un niño tiene anemi
 En Puno, a unos 3.800 metros, la regla de 2001 le restaba a cada niño alrededor de 3,1 g/dL y la de 2024 le resta 2,6. Además, para menores de 2 años el umbral bajó a 10,5. Con la regla antigua, el 72,8% de los niños de 6 a 35 meses de Puno tenía anemia (2014-2024). Con la nueva, esos mismos niños tienen 44,5% y Puno pasa del primer al sexto lugar.
 
 6/10  [imagen 04_brecha_por_criterio.png]
-Ese cambio de regla explica casi toda la brecha. La diferencia de anemia entre Puno y el resto del Perú cae de 30,9 a 8 puntos. La nueva corrección por altitud la reduce en 24,5 puntos y el nuevo umbral por edad la aumenta en 1,6. Los niños y su hemoglobina son los mismos. Lo que cambia es la regla con que se mide.
+El gráfico separa los dos cambios. Si solo se baja el umbral por edad, la anemia cae en todo el país y la diferencia entre Puno y el resto casi no se mueve (de 30,9 a 32,9 puntos). Si solo se cambia la corrección por altitud, la anemia sube en el resto del Perú, baja en Puno y la diferencia cae a 6,8. Con la regla de 2024 queda en 8. Casi todo viene de la altitud.
 
 7/10  [imagen 05_coeficientes_anemia.png]
 ¿Y el alcohol? Al comparar niños parecidos en edad, riqueza, altitud y educación de la madre, encontramos asociaciones positivas pero pequeñas. Tener en casa un adulto que bebe con frecuencia y reporta daños por el alcohol se asocia con 3,3 puntos más de anemia en el resto del Perú. En Puno las estimaciones son menos precisas.
