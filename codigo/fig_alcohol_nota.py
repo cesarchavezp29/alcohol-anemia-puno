@@ -122,14 +122,23 @@ def main():
     # factorial decomposition
     fs = pd.read_csv(A / "v2_factorial_shapley.csv")
     fs = fs[(fs["sample"] == "2014-2024") & fs.definition.isin(["A", "B", "C", "D"])]
-    labs = {"A": "OMS 2001\n(ajuste y umbral antiguos)", "B": "Umbral nuevo,\najuste antiguo",
-            "C": "Ajuste nuevo,\numbral antiguo", "D": "OMS 2024\n(ajuste y umbral nuevos)"}
-    fig, ax = plt.subplots(figsize=(6.2, 3.0))
-    ax.bar(range(4), fs.gap, color=[NAVY, GREY, GREY, CRAN], width=0.6)
-    for i, val in enumerate(fs.gap):
-        ax.text(i, val + 0.6, f"{val:.1f}".replace(".", ","), ha="center", fontsize=9)
-    ax.set_xticks(range(4), [labs[k] for k in fs.definition])
-    ax.set_ylabel("Brecha de anemia Puno menos resto (pp)")
+    fs = fs.set_index("definition").loc[["A", "B", "C", "D"]]
+    labs = ["Regla de 2001", "Regla de 2001\ncon el nuevo\numbral por edad", "Regla de 2001\ncon la nueva\ncorrección por altitud", "Regla de 2024"]
+    fig, ax = plt.subplots(figsize=(6.4, 3.6))
+    x = np.arange(4)
+    w = 0.36
+    ax.bar(x - w / 2, fs.rest, width=w, color=NAVY, label="Resto del Perú")
+    ax.bar(x + w / 2, fs.puno, width=w, color=CRAN, label="Puno")
+    for i, (r_, p_) in enumerate(zip(fs.rest, fs.puno)):
+        ax.text(i - w / 2, r_ + 1, f"{r_:.1f}".replace(".", ","), ha="center", fontsize=8.5)
+        ax.text(i + w / 2, p_ + 1, f"{p_:.1f}".replace(".", ","), ha="center", fontsize=8.5)
+        top = max(r_, p_) + 9
+        ax.plot([i - w / 2, i - w / 2, i + w / 2, i + w / 2], [top - 1.5, top, top, top - 1.5], color="black", lw=0.7)
+        ax.text(i, top + 1, f"diferencia\n{p_ - r_:.1f} pp".replace(".", ","), ha="center", fontsize=8.5, fontweight="bold")
+    ax.set_xticks(x, labs, fontsize=9)
+    ax.set_ylabel("Niños de 6 a 35 meses\ncon anemia (%)")
+    ax.set_ylim(0, 100)
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.32), ncol=2)
     fig.savefig(F / "brecha_por_criterio.pdf", bbox_inches="tight")
     plt.close(fig)
 

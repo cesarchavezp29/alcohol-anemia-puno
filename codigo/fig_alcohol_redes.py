@@ -94,10 +94,11 @@ def main():
               "en el último mes, contando 0,25 litros por vaso o lata y 0,62 por botella. ENAPREF 2019-2020. ENAHO "
               "2014-2024, que solo registra la cerveza comprada para consumir en el hogar.")
     with_note("brecha_por_criterio", "04_brecha_por_criterio.png",
-              "Diferencia en puntos porcentuales entre la anemia de los niños de 6 a 35 meses de Puno y la del "
-              "resto del Perú, ENDES 2014-2024. La regla de la OMS de 2024 cambió dos cosas, la corrección por "
-              "altitud y el umbral para menores de 2 años. Las barras grises aplican solo uno de los dos cambios, "
-              "para ver cuánto aporta cada uno.")
+              "Porcentaje de niños de 6 a 35 meses con anemia en Puno y en el resto del Perú según cuatro reglas, "
+              "ENDES 2014-2024. La regla de la OMS de 2024 cambió dos cosas respecto de la de 2001, la corrección por "
+              "altitud y el umbral para menores de 2 años, que bajó de 11 a 10,5 g/dL. Las dos reglas del centro "
+              "aplican solo uno de esos cambios. La diferencia entre Puno y el resto casi desaparece cuando se cambia "
+              "la corrección por altitud, y casi no se mueve cuando solo se cambia el umbral.")
     with_note("coeficientes_anemia", "05_coeficientes_anemia.png",
               "Diferencia en la probabilidad de anemia (criterio OMS 2024) asociada a cada medida de consumo de "
               "alcohol del adulto entrevistado, comparando niños con la misma edad, sexo, quintil de riqueza, área, "
