@@ -127,7 +127,7 @@ def main():
     fig, ax = plt.subplots(figsize=(6.2, 3.0))
     ax.bar(range(4), fs.gap, color=[NAVY, GREY, GREY, CRAN], width=0.6)
     for i, val in enumerate(fs.gap):
-        ax.text(i, val + 0.6, f"{val:.1f}", ha="center", fontsize=9)
+        ax.text(i, val + 0.6, f"{val:.1f}".replace(".", ","), ha="center", fontsize=9)
     ax.set_xticks(range(4), [labs[k] for k in fs.definition])
     ax.set_ylabel("Brecha de anemia Puno menos resto (pp)")
     fig.savefig(F / "brecha_por_criterio.pdf", bbox_inches="tight")
