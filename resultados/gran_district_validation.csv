@@ -1,0 +1,12 @@
+,0
+n_children,54823.0
+district_children,0.9722196888167375
+province_children,0.9990150119475403
+n_clusters,18309.0
+district_clusters,0.9723633185864875
+n_clusters_puno,569.0
+district_clusters_puno,0.961335676625659
+gps_dropped_wrong_dept,42.0
+district_children_urban,0.9679836338064186
+district_children_rural,0.9827586206896551
+dropped_no_district,17.0

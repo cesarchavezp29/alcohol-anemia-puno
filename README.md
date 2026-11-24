@@ -10,6 +10,7 @@ La nota completa está en [`nota/nota_alcohol_anemia_puno.pdf`](nota/nota_alcoho
 - **Medición de la anemia.** Con el criterio de la OMS de 2001, la anemia de los niños de 6 a 35 meses en Puno fue de 72,8% en 2014-2024. Con el criterio de 2024 fue de 44,5%. La brecha con el resto del país pasa de 30,9 a 8,0 puntos, casi toda por el cambio en la corrección por altitud.
 - **Alcohol y anemia.** El consumo de alcohol medido explica prácticamente nada de la brecha (descomposición de Oaxaca-Blinder). Si los adultos entrevistados en Puno dejaran de beber, el modelo predice una reducción de 1,1 puntos (IC 95% entre -2,3 y +0,2).
 - **Qué predice la anemia.** Enlazando a cada niño con su madre y los módulos de salud de la ENDES, doce grupos de variables explican el 9,2% de la variación de la anemia. Los mejores predictores son la edad del niño, la hemoglobina de la madre y la riqueza del hogar; el alcohol es el último (valor de Shapley del R²). En la brecha de Puno los factores se compensan (descomposición de Gelbach): la riqueza suma 2,0 puntos, la altitud y la hemoglobina materna restan, y quedan 8,6 puntos sin explicar (IC 95% 5,8 a 11,5), 6,0 frente a otras zonas sobre 3.000 m.
+- **Más detalle en tiempo y territorio.** Con efectos fijos de distrito × año y año × mes la asociación individual no cambia (unos 3 puntos para el bebedor frecuente con daños) y no hay heterogeneidad robusta. Las fiestas patronales (directorio distrital del INEI, 6.872 fiestas) no muestran aumentos sistemáticos del consumo ni de la anemia. En la Candelaria sube el consumo reportado de cerveza, pero la asociación con la anemia cae de 16 a 3 puntos al comparar con el mismo mes de Puno en otros años. Puno tiene un exceso de anemia de unos 11 puntos entre enero y abril que no explican ni el alcohol ni las demás variables de la ENDES.
 - **Violencia contra la mujer.** Cuando la pareja se embriaga con frecuencia, el 30% de las mujeres sufrió violencia física o sexual en el último año, frente al 7% cuando la pareja no bebe.
 
 Todos los resultados son asociaciones descriptivas condicionadas en características observables, no efectos causales.
@@ -23,6 +24,7 @@ Todos los resultados son asociaciones descriptivas condicionadas en característ
 | `hilo_twitter.txt` | Hilo de diez tuits que resume los resultados |
 | `resultados/` | Tablas de resultados agregados en CSV |
 | `codigo/` | Programas en Python |
+| `datos/` | Calendario de fiestas distritales extraído del directorio del INEI (2013), con UBIGEO, fecha y duración |
 
 ## Datos
 
@@ -53,6 +55,10 @@ python codigo/analysis_alcohol_engel.py         # curvas de Engel
 python codigo/analysis_alcohol_consequences.py  # contrafactual, violencia, escolaridad, panel
 python codigo/analysis_anemia_predictors.py     # predictores de la anemia: Shapley del R², Gelbach/Oaxaca
 python codigo/analysis_anemia_predictors.py --robust   # comprobaciones y bootstrap final de 1.999 réplicas
+python codigo/parse_festividades_inei.py        # calendario de fiestas distritales del INEI (2013) desde el PDF
+python codigo/analysis_alcohol_granular.py      # distrito, fecha exacta, efectos fijos finos, heterogeneidad, Candelaria
+python codigo/analysis_fiestas.py               # consumo y anemia alrededor de las fiestas patronales
+python codigo/fig_granular.py                   # figura de estacionalidad, Candelaria y fiestas
 python codigo/fig_alcohol_nota.py               # figuras
 ```
 

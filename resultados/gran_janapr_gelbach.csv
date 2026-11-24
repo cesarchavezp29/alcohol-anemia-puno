@@ -1,0 +1,19 @@
+outcome,component,value,se
+anemia_2024,"Edad, sexo y orden de nacimiento",0.41213775221280724,
+anemia_2024,Altitud y zona,0.4947286753970155,
+anemia_2024,Riqueza y hogar,-0.17156642298217792,
+anemia_2024,"Diarrea, fiebre y tos",0.2240143346463365,
+anemia_2024,Alimentación de ayer,-0.0990063203132083,
+anemia_2024,Hemoglobina de la madre,1.050170907990291,
+anemia_2024,Alcohol del adulto,-0.08397898412064518,
+anemia_2024,Exceso enero-abril observado,11.338884720285638,2.399991766680988
+anemia_2024,Exceso que queda sin explicar,9.512384777455203,2.2981599762723555
+hb_adj24,"Edad, sexo y orden de nacimiento",-0.01391227943519481,
+hb_adj24,Altitud y zona,-0.018674396255774748,
+hb_adj24,Riqueza y hogar,0.00939784136848601,
+hb_adj24,"Diarrea, fiebre y tos",-0.004978464133945335,
+hb_adj24,Alimentación de ayer,0.004073972755746572,
+hb_adj24,Hemoglobina de la madre,-0.03135984297039751,
+hb_adj24,Alcohol del adulto,0.003529994527945985,
+hb_adj24,Exceso enero-abril observado,-0.27295416526401856,0.05433238950767696
+hb_adj24,Exceso que queda sin explicar,-0.221030991120885,0.050396129353482234
