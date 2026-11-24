@@ -40,21 +40,36 @@ def note_block(fig, eq, text, y0, wrap, size_eq=10.5, size=9.5):
     return body.count("\n") + 1
 
 
+def trim(img, pad=12, thr=245):
+    """Cut white margins around the plot."""
+    mask = (img < thr).any(axis=2)
+    rows, cols = np.where(mask.any(axis=1))[0], np.where(mask.any(axis=0))[0]
+    r0, r1 = max(rows[0] - pad, 0), min(rows[-1] + pad, img.shape[0])
+    c0, c1 = max(cols[0] - pad, 0), min(cols[-1] + pad, img.shape[1])
+    return img[r0:r1, c0:c1]
+
+
 def compose(img, eq, text, width_in=7.5, wrap=105, max_h=None):
-    lines = textwrap.fill(text + " " + FIRMA, wrap).count("\n") + 1
+    img = trim(img)
+    body = textwrap.fill(text + " " + FIRMA, wrap)
+    lines = body.count("\n") + 1
     h_img = width_in * img.shape[0] / img.shape[1]
     if max_h:
         h_img = min(h_img, max_h)
-    h_eq = 0.30 * len(eq) + (0.15 if eq else 0)
-    h_txt = 0.19 * lines + 0.30
-    H = h_img + h_eq + h_txt
+    gap, h_line_eq, h_line_txt = 0.12, 0.27, 0.175
+    h_eq = h_line_eq * len(eq)
+    h_txt = h_line_txt * lines
+    H = h_img + gap + h_eq + gap + h_txt + 0.12
     fig = plt.figure(figsize=(width_in, H))
-    ax = fig.add_axes([0, (h_eq + h_txt) / H, 1, h_img / H])
+    ax = fig.add_axes([0, 1 - h_img / H, 1, h_img / H])
     ax.imshow(img)
     ax.set_axis_off()
-    for k, line in enumerate(eq):
-        fig.text(0.03, (h_txt + h_eq - 0.30 * (k + 1)) / H, line, ha="left", va="bottom", fontsize=10.5)
-    fig.text(0.03, 0.15 / H, textwrap.fill(text + " " + FIRMA, wrap), ha="left", va="bottom", fontsize=9.5, color="#333333")
+    y = h_img + gap                      # inches from the top
+    for line in eq:
+        fig.text(0.03, 1 - y / H, line, ha="left", va="top", fontsize=10.5)
+        y += h_line_eq
+    y += gap
+    fig.text(0.03, 1 - y / H, body, ha="left", va="top", fontsize=9.5, color="#333333", linespacing=1.25)
     return fig
 
 
